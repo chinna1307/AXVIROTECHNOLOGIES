@@ -16,13 +16,21 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3">
-          {/* Logo sourced from public folder */}
-          <img src="/logo.png" alt="Axviro Logo" className="w-10 h-10 object-contain" />
-          
-          <span className="font-extrabold text-2xl tracking-tight text-black">
-            AT <span className="text-orange-600 font-extrabold">AXVIROTECHNOLOGIES</span>
+          <div className="bg-orange-600 text-white font-bold w-10 h-10 flex items-center justify-center rounded shadow-lg text-lg">
+            AT
+          </div>
+          <span className="font-extrabold text-2xl tracking-tight">
+            <span className="text-black">AXVIRO</span>
+            <span className="text-orange-600">TECHNOLOGIES</span>
           </span>
         </Link>
+        <div className="hidden md:flex gap-8 font-medium">
+          <Link to="/" className="hover:text-orange-600">Home</Link>
+          <Link to="/services" className="hover:text-orange-600">Services</Link>
+          <Link to="/expertise" className="hover:text-orange-600">Expertise</Link>
+          <Link to="/technologies" className="hover:text-orange-600">Technologies</Link>
+          <Link to="/contact" className="hover:text-orange-600">Contact</Link>
+        </div>
       </div>
     </motion.nav>
   );
