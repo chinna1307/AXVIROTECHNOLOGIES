@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -19,14 +18,11 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3">
-          {/* REPLACE THIS WITH YOUR LOGO IMAGE */}
           <img src="/logo.png" alt="Axviro Logo" className="w-10 h-10 object-contain" />
-          
-          <span className="font-extrabold text-2xl tracking-tight tech-font text-black">
+          <span className="font-extrabold text-2xl tracking-tight text-black">
             AXVIRO<span className="text-orange-600 font-extrabold">TECHNOLOGIES</span>
           </span>
         </Link>
-        {/* ... rest of your navigation ... */}
       </div>
     </motion.nav>
   );
