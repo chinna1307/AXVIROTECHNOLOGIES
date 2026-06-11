@@ -13,19 +13,20 @@ export default function Services() {
   ];
 
   return (
-    <div className="pt-32 pb-20 max-w-7xl mx-auto px-6 min-h-screen">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16 max-w-3xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tech-font">Enterprise IT Consulting</h1>
-        <p className="text-lg text-slate-600 font-light">Reimagining your digital frameworks, we decode your challenges and chalk out the best possible strategy to address your pain points head-on.</p>
+    <div className="relative z-10 mx-auto min-h-screen max-w-7xl px-6 pb-20 pt-32 text-white">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mx-auto mb-16 max-w-3xl text-center">
+        <div className="mb-4 inline-flex rounded-full border border-orange-400/20 bg-orange-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-orange-200">Services</div>
+        <h1 className="mb-6 text-4xl font-extrabold md:text-5xl tech-font">Enterprise IT Consulting</h1>
+        <p className="text-lg font-light leading-8 text-slate-300">Reimagining your digital frameworks, we decode your challenges and chalk out the best possible strategy to address your pain points head-on.</p>
       </motion.div>
       <div className="grid md:grid-cols-3 gap-8">
         {services.map((s, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:border-orange-200 transition-all group">
-            <div className="w-14 h-14 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+          <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="group rounded-[1.5rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/20 backdrop-blur-md transition-transform hover:-translate-y-1">
+            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-orange-400/10 text-orange-300 ring-1 ring-orange-300/20 group-hover:bg-orange-500 group-hover:text-white transition-colors">
               <s.icon size={28} />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3 tech-font">{s.title}</h3>
-            <p className="text-slate-500 font-light leading-relaxed">{s.desc}</p>
+            <h3 className="mb-3 text-xl font-bold text-white tech-font">{s.title}</h3>
+            <p className="font-light leading-relaxed text-slate-300">{s.desc}</p>
           </motion.div>
         ))}
       </div>

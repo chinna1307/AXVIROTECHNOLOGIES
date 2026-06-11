@@ -7,10 +7,11 @@ export default function Technologies() {
   ];
 
   return (
-    <div className="pt-32 pb-20 max-w-7xl mx-auto px-6 text-center min-h-screen">
+    <div className="relative z-10 mx-auto min-h-screen max-w-7xl px-6 pb-20 pt-32 text-center text-white">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tech-font">Core Technologies</h1>
-        <p className="text-lg text-slate-600 font-light max-w-2xl mx-auto mb-16">The modern stack powering our enterprise solutions. We utilize industry-leading tools to build resilient architecture.</p>
+        <div className="mb-4 inline-flex rounded-full border border-orange-400/20 bg-orange-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-orange-200">Technologies</div>
+        <h1 className="mb-6 text-4xl font-extrabold md:text-5xl tech-font">Core Technologies</h1>
+        <p className="mx-auto mb-16 max-w-2xl text-lg font-light leading-8 text-slate-300">The modern stack powering our enterprise solutions. We utilize industry-leading tools to build resilient architecture.</p>
       </motion.div>
       <motion.div 
         className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto"
@@ -20,7 +21,7 @@ export default function Technologies() {
           <motion.div 
             key={i} 
             initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: i * 0.05 }}
-            className="px-6 py-4 bg-white rounded-xl shadow-sm border border-slate-100 text-lg font-bold text-slate-800 tech-font hover:border-orange-500 hover:text-orange-600 transition-colors cursor-default"
+            className="cursor-default rounded-xl border border-white/10 bg-white/5 px-6 py-4 text-lg font-bold text-white shadow-lg shadow-black/20 backdrop-blur-md transition-colors hover:border-orange-400/30 hover:text-orange-300 tech-font"
           >
             {tech}
           </motion.div>

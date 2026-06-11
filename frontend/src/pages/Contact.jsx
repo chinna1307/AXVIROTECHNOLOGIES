@@ -12,11 +12,12 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-32 pb-20 max-w-7xl mx-auto px-6 min-h-screen">
+    <div className="relative z-10 mx-auto min-h-screen max-w-7xl px-6 pb-20 pt-32 text-white">
       <div className="grid md:grid-cols-2 gap-16">
         <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tech-font">Partner With Us</h1>
-          <p className="text-lg text-slate-600 font-light mb-8">Didn't find what you're looking for? Let us know your specific enterprise needs, and we'll tailor a strategic solution just for you.</p>
+          <div className="mb-4 inline-flex rounded-full border border-orange-400/20 bg-orange-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-orange-200">Contact</div>
+          <h1 className="mb-6 text-4xl font-extrabold md:text-5xl tech-font">Partner With Us</h1>
+          <p className="mb-8 text-lg font-light leading-8 text-slate-300">Didn't find what you're looking for? Let us know your specific enterprise needs, and we'll tailor a strategic solution just for you.</p>
           
           <div className="space-y-6">
             <div className="flex items-center gap-4 bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:border-orange-200 transition-colors">
@@ -31,6 +32,13 @@ export default function Contact() {
               <div>
                 <div className="text-sm text-slate-500 font-medium">Location</div>
                 <div className="font-bold text-slate-900">Global Operations HQ</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:border-orange-200 transition-colors">
+              <div className="w-12 h-12 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center shrink-0"><Phone /></div>
+              <div>
+                <div className="text-sm text-slate-500 font-medium">Call Us</div>
+                <div className="font-bold text-slate-900">+1 (000) 123-4567</div>
               </div>
             </div>
           </div>
