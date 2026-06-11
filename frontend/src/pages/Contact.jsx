@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, MapPin, Phone, Linkedin, Twitter, Github, CheckCircle, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Globe, Share2, ExternalLink, CheckCircle, Send } from 'lucide-react';
 
 const fadeLeft = { hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6 } } };
 const fadeRight = { hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6 } } };
@@ -41,9 +41,9 @@ export default function Contact() {
   ];
 
   const socials = [
-    { icon: Linkedin, label: 'LinkedIn', href: '#', color: 'hover:border-blue-400/50 hover:text-blue-300' },
-    { icon: Twitter, label: 'Twitter / X', href: '#', color: 'hover:border-sky-400/50 hover:text-sky-300' },
-    { icon: Github, label: 'GitHub', href: '#', color: 'hover:border-white/40 hover:text-white' },
+    { icon: Globe, label: 'LinkedIn', href: '#', color: 'hover:border-blue-400/50 hover:text-blue-300' },
+    { icon: Share2, label: 'Twitter / X', href: '#', color: 'hover:border-sky-400/50 hover:text-sky-300' },
+    { icon: ExternalLink, label: 'GitHub', href: '#', color: 'hover:border-white/40 hover:text-white' },
   ];
 
   return (

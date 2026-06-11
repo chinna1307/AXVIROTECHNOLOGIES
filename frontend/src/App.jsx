@@ -7,7 +7,7 @@ import Services from './pages/Services';
 import Expertise from './pages/Expertise';
 import Technologies from './pages/Technologies';
 import Contact from './pages/Contact';
-import { ArrowUp, Mail, Linkedin, Twitter, Github } from 'lucide-react';
+import { ArrowUp, Mail, Globe, Share2, ExternalLink } from 'lucide-react';
 
 function ScrollToTop() {
   const [visible, setVisible] = useState(false);
@@ -56,9 +56,9 @@ function Footer() {
   };
 
   const socials = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Github, href: '#', label: 'GitHub' },
+    { icon: Globe, href: '#', label: 'LinkedIn' },
+    { icon: Share2, href: '#', label: 'Twitter' },
+    { icon: ExternalLink, href: '#', label: 'GitHub' },
     { icon: Mail, href: 'mailto:hello@axvirotechnologies.com', label: 'Email' },
   ];
 
