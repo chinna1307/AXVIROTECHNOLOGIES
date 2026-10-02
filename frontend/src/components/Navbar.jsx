@@ -6,8 +6,9 @@ import { ArrowRight, Menu, X } from 'lucide-react';
 const navLinks = [
   ['/', 'Home'],
   ['/services', 'Services'],
-  ['/expertise', 'Expertise'],
+  ['/projects', 'Projects'],
   ['/technologies', 'Technologies'],
+  ['/about', 'About'],
   ['/contact', 'Contact'],
 ];
 
@@ -52,7 +53,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-2 md:flex backdrop-blur-sm">
+          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-2 lg:flex backdrop-blur-sm">
             {navLinks.map(([to, label]) => (
               <NavLink
                 key={to}
@@ -77,15 +78,16 @@ export default function Navbar() {
               to="/contact"
               className="hidden sm:inline-flex items-center gap-2 rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-orange-500/30 transition-all hover:-translate-y-0.5 hover:bg-orange-400 hover:shadow-orange-400/40"
             >
-              Start a project
+              Start a Project
               <ArrowRight size={15} />
             </Link>
 
             {/* Hamburger (mobile only) */}
             <button
               onClick={() => setMobileOpen((v) => !v)}
-              className="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-colors hover:bg-white/10"
-              aria-label="Toggle menu"
+              className="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-colors hover:bg-white/10"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
               id="mobile-menu-toggle"
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -103,12 +105,15 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="mobile-menu-overlay fixed inset-0 z-40 flex flex-col bg-slate-950/95 pt-24 px-6 md:hidden"
+            className="mobile-menu-overlay fixed inset-0 z-40 flex flex-col bg-slate-950/95 pt-24 px-6 lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
           >
             {/* Decorative glow */}
             <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 h-80 w-80 rounded-full bg-orange-500/10 blur-3xl" />
 
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-2" aria-label="Mobile navigation">
               {navLinks.map(([to, label], i) => (
                 <motion.div
                   key={to}
@@ -128,7 +133,7 @@ export default function Navbar() {
                       }`
                     }
                   >
-                    <span className={`h-2 w-2 rounded-full bg-orange-400`} />
+                    <span className="h-2 w-2 rounded-full bg-orange-400" />
                     {label}
                   </NavLink>
                 </motion.div>
@@ -146,7 +151,7 @@ export default function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-center gap-2 rounded-full bg-orange-500 px-6 py-4 text-base font-bold text-white shadow-lg shadow-orange-500/30 transition-all hover:bg-orange-400"
               >
-                Start a project <ArrowRight size={18} />
+                Start a Project <ArrowRight size={18} />
               </Link>
             </motion.div>
 

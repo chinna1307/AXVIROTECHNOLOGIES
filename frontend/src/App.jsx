@@ -6,9 +6,13 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import Expertise from './pages/Expertise';
 import Technologies from './pages/Technologies';
+import Projects from './pages/Projects';
+import About from './pages/About';
 import Contact from './pages/Contact';
-import { ArrowUp, Mail, Globe, Share2, ExternalLink } from 'lucide-react';
+import { ArrowUp, Mail } from 'lucide-react';
+import { COMPANY_LINKS } from './config/profile';
 
+/* ── Scroll to top button ── */
 function ScrollToTop() {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -37,40 +41,53 @@ function ScrollToTop() {
   );
 }
 
+/* ── Footer ── */
 function Footer() {
-  const footerLinks = {
-    Company: [
-      { label: 'Home', to: '/' },
-      { label: 'Services', to: '/services' },
-      { label: 'Expertise', to: '/expertise' },
-      { label: 'Technologies', to: '/technologies' },
-      { label: 'Contact', to: '/contact' },
-    ],
-    Services: [
-      { label: 'AI Strategy', to: '/services' },
-      { label: 'Cloud & Migration', to: '/services' },
-      { label: 'Digital Transformation', to: '/services' },
-      { label: 'IT Risk & Compliance', to: '/services' },
-      { label: 'Process Optimization', to: '/services' },
-    ],
-  };
-
-  const socials = [
-    { icon: Globe, href: '#', label: 'LinkedIn' },
-    { icon: Share2, href: '#', label: 'Twitter' },
-    { icon: ExternalLink, href: '#', label: 'GitHub' },
-    { icon: Mail, href: 'mailto:hello@axvirotechnologies.com', label: 'Email' },
+  const navLinks = [
+    { label: 'Home', to: '/' },
+    { label: 'Services', to: '/services' },
+    { label: 'Projects', to: '/projects' },
+    { label: 'Technologies', to: '/technologies' },
+    { label: 'About', to: '/about' },
+    { label: 'Contact', to: '/contact' },
   ];
+
+  // Company social icons — only shown when real URLs are configured in COMPANY_LINKS
+  const socialIcons = [
+    COMPANY_LINKS.github && {
+      href: COMPANY_LINKS.github,
+      label: 'GitHub',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+        </svg>
+      ),
+    },
+    COMPANY_LINKS.linkedin && {
+      href: COMPANY_LINKS.linkedin,
+      label: 'LinkedIn',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg>
+      ),
+    },
+    {
+      href: `mailto:${COMPANY_LINKS.email}`,
+      label: 'Email',
+      icon: <Mail size={16} />,
+    },
+  ].filter(Boolean);
 
   return (
     <footer className="relative z-10 border-t border-white/10 bg-slate-950/90 backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr] lg:gap-16">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr] lg:gap-16">
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-3 mb-5">
               <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl border border-orange-400/30 bg-orange-500/10 shadow-lg shadow-orange-500/20">
-                <img src="/logo1.png" alt="Axviro Technologies" className="h-full w-full object-cover" />
+                <img src="/logo1.png" alt="Axviro Technologies logo" className="h-full w-full object-cover" />
               </div>
               <span className="text-lg font-extrabold tracking-tight">
                 <span className="text-white">AXVIRO</span>
@@ -78,41 +95,48 @@ function Footer() {
               </span>
             </Link>
             <p className="max-w-sm text-sm leading-7 text-slate-500">
-              We design software systems, digital products, and cloud foundations that help teams ship with confidence.
+              Modern Software, Web &amp; AI Solutions
             </p>
-            {/* Socials */}
-            <div className="mt-6 flex gap-3">
-              {socials.map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-500 transition-all hover:border-orange-400/40 hover:text-orange-300 hover:-translate-y-0.5"
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
-            </div>
+            {/* Company social icons — only rendered when URLs are configured */}
+            {socialIcons.length > 0 && (
+              <div className="mt-6 flex gap-3">
+                {socialIcons.map(({ href, label, icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    target={href.startsWith('mailto') ? undefined : '_blank'}
+                    rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-500 transition-all hover:border-orange-400/40 hover:text-orange-300 hover:-translate-y-0.5"
+                  >
+                    {icon}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Link Columns */}
-          {Object.entries(footerLinks).map(([section, links]) => (
-            <div key={section}>
-              <p className="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-slate-500">{section}</p>
-              <ul className="space-y-3">
-                {links.map(({ label, to }) => (
-                  <li key={label}>
-                    <Link
-                      to={to}
-                      className="text-sm text-slate-400 transition-colors hover:text-orange-300"
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Navigation */}
+          <div>
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-slate-500">Navigation</p>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
+              {navLinks.map(({ label, to }) => (
+                <li key={label}>
+                  <Link to={to} className="text-sm text-slate-400 transition-colors hover:text-orange-300">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <a
+                  href={`mailto:${COMPANY_LINKS.email}`}
+                  className="text-sm text-slate-400 transition-colors hover:text-orange-300"
+                >
+                  {COMPANY_LINKS.email}
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Bottom bar */}
@@ -120,16 +144,13 @@ function Footer() {
           <p className="text-sm text-slate-600">
             © {new Date().getFullYear()} Axviro Technologies. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-slate-600">
-            <a href="#" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-400 transition-colors">Terms of Service</a>
-          </div>
         </div>
       </div>
     </footer>
   );
 }
 
+/* ── App ── */
 export default function App() {
   return (
     <Router>
@@ -146,6 +167,8 @@ export default function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/expertise" element={<Expertise />} />
             <Route path="/technologies" element={<Technologies />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

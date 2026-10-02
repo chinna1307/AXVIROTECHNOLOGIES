@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -12,7 +12,6 @@ const stagger = {
   visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
 
-/* Inline SVG icons for tech logos (simple shapes) */
 const techCategories = [
   {
     category: 'Frontend',
@@ -21,11 +20,11 @@ const techCategories = [
     dot: 'bg-blue-400',
     techs: [
       { name: 'React', abbr: 'Re' },
-      { name: 'Next.js', abbr: 'Nx' },
       { name: 'TypeScript', abbr: 'TS' },
-      { name: 'Tailwind CSS', abbr: 'Tw' },
-      { name: 'Flutter', abbr: 'Fl' },
-      { name: 'Vue.js', abbr: 'Vu' },
+      { name: 'JavaScript', abbr: 'JS' },
+      { name: 'Next.js', abbr: 'Nx' },
+      { name: 'HTML5', abbr: 'HT' },
+      { name: 'CSS3', abbr: 'CS' },
     ],
   },
   {
@@ -34,49 +33,50 @@ const techCategories = [
     accent: 'text-emerald-300',
     dot: 'bg-emerald-400',
     techs: [
+      { name: 'Java', abbr: 'Jv' },
+      { name: 'Spring Boot', abbr: 'SB' },
       { name: 'Node.js', abbr: 'No' },
-      { name: 'Python', abbr: 'Py' },
-      { name: 'FastAPI', abbr: 'FA' },
-      { name: 'GraphQL', abbr: 'GQ' },
       { name: 'REST APIs', abbr: 'RE' },
-      { name: 'Go', abbr: 'Go' },
     ],
   },
   {
-    category: 'Cloud',
-    color: 'from-orange-500/10 to-amber-500/10 border-orange-400/20',
-    accent: 'text-orange-300',
-    dot: 'bg-orange-400',
-    techs: [
-      { name: 'AWS', abbr: 'AW' },
-      { name: 'Azure', abbr: 'Az' },
-      { name: 'GCP', abbr: 'GC' },
-      { name: 'Vercel', abbr: 'Ve' },
-      { name: 'Netlify', abbr: 'Ne' },
-      { name: 'Cloudflare', abbr: 'CF' },
-    ],
-  },
-  {
-    category: 'DevOps & Data',
+    category: 'Database',
     color: 'from-purple-500/10 to-violet-500/10 border-purple-400/20',
     accent: 'text-purple-300',
     dot: 'bg-purple-400',
     techs: [
-      { name: 'Docker', abbr: 'Do' },
-      { name: 'Kubernetes', abbr: 'K8' },
-      { name: 'MongoDB', abbr: 'Mg' },
       { name: 'PostgreSQL', abbr: 'PG' },
+      { name: 'MySQL', abbr: 'My' },
+      { name: 'MongoDB', abbr: 'Mg' },
       { name: 'Redis', abbr: 'Rd' },
-      { name: 'Terraform', abbr: 'Tf' },
     ],
   },
-];
-
-const howWeWork = [
-  { step: '01', title: 'Discover & Assess', desc: 'We audit your current stack, understand constraints, and identify the best tools for your goals.' },
-  { step: '02', title: 'Architect & Design', desc: 'We design a scalable, future-proof architecture using proven technology combinations.' },
-  { step: '03', title: 'Build & Integrate', desc: 'Our engineers implement with clean code, comprehensive tests, and tight API integration.' },
-  { step: '04', title: 'Monitor & Optimize', desc: 'Post-launch, we continuously monitor performance and optimize for reliability and cost.' },
+  {
+    category: 'AI & Data',
+    color: 'from-orange-500/10 to-amber-500/10 border-orange-400/20',
+    accent: 'text-orange-300',
+    dot: 'bg-orange-400',
+    techs: [
+      { name: 'Spring AI', abbr: 'SA' },
+      { name: 'RAG', abbr: 'RG' },
+      { name: 'Vector DBs', abbr: 'VD' },
+      { name: 'LLM APIs', abbr: 'LM' },
+    ],
+  },
+  {
+    category: 'DevOps / Cloud',
+    color: 'from-sky-500/10 to-blue-500/10 border-sky-400/20',
+    accent: 'text-sky-300',
+    dot: 'bg-sky-400',
+    techs: [
+      { name: 'Docker', abbr: 'Do' },
+      { name: 'AWS', abbr: 'AW' },
+      { name: 'Vercel', abbr: 'Ve' },
+      { name: 'Git', abbr: 'Gt' },
+      { name: 'GitHub', abbr: 'GH' },
+      { name: 'CI/CD', abbr: 'CD' },
+    ],
+  },
 ];
 
 export default function Technologies() {
@@ -96,12 +96,12 @@ export default function Technologies() {
             <span className="gradient-text">Our Work</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="mx-auto max-w-2xl text-lg font-light leading-8 text-slate-400">
-            We work with the best tools in the industry — carefully selected to deliver performance, scalability, and reliability across every layer.
+            We use production-proven technologies — carefully selected to deliver performance, scalability, and reliability across every layer of the stack.
           </motion.p>
         </motion.div>
 
         {/* Tech Categories */}
-        <div className="grid gap-6 md:grid-cols-2 mb-28">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 mb-28">
           {techCategories.map((cat, ci) => (
             <motion.div
               key={cat.category}
@@ -132,40 +132,6 @@ export default function Technologies() {
           ))}
         </div>
 
-        {/* How We Work */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mb-20"
-        >
-          <motion.div variants={fadeUp} className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.3em] text-orange-300">
-            How we work
-          </motion.div>
-          <motion.h2 variants={fadeUp} className="mb-14 text-center text-3xl font-bold text-white md:text-4xl tech-font">
-            From stack selection to <span className="gradient-text">production.</span>
-          </motion.h2>
-          <div className="grid gap-6 md:grid-cols-4">
-            {howWeWork.map((item, i) => (
-              <motion.div
-                key={item.step}
-                variants={fadeUp}
-                className="relative glass-card glass-card-hover rounded-[1.5rem] p-7 text-center transition-all duration-300 hover:-translate-y-1"
-              >
-                {i < howWeWork.length - 1 && (
-                  <div className="absolute hidden md:block top-10 -right-3 w-6 h-px bg-orange-400/30" />
-                )}
-                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-orange-500/15 text-orange-300 text-lg font-bold ring-1 ring-orange-400/20 tech-font">
-                  {item.step}
-                </div>
-                <h3 className="mb-2 text-base font-bold text-white tech-font">{item.title}</h3>
-                <p className="text-sm leading-6 text-slate-400">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -178,7 +144,7 @@ export default function Technologies() {
             to="/contact"
             className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-7 py-4 font-semibold text-white shadow-xl shadow-orange-500/30 transition-all hover:-translate-y-1 hover:bg-orange-400"
           >
-            Talk to a consultant <ArrowRight size={18} />
+            Start a Conversation <ArrowRight size={18} />
           </Link>
         </motion.div>
       </div>
