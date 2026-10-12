@@ -156,7 +156,7 @@ export default function Navbar() {
             </motion.div>
 
             <div className="mt-10 border-t border-white/10 pt-8 flex flex-col gap-3 text-sm text-slate-400">
-              <p>hello@axvirotechnologies.com</p>
+              <p>careers@axvirotechnologies.com</p>
               <p>© {new Date().getFullYear()} Axviro Technologies</p>
             </div>
           </motion.div>
