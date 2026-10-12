@@ -7,7 +7,7 @@
 
 export const COMPANY_LINKS = {
   /** Company business email */
-  email: 'hello@axvirotechnologies.com',
+  email: 'careers@axvirotechnologies.com',
 
   /** Axviro Technologies GitHub organization — set to real org URL when available */
   github: null, // e.g. 'https://github.com/axvirotechnologies'
